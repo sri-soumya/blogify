@@ -8,7 +8,6 @@ function createUserToken(user) {
     profileImageURL: user.profileImageURL,
     role: user.role,
   };
-  console.log(user, payload);
   const token = jwt.sign(payload, secret);
   return token;
 }

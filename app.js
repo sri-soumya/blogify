@@ -11,7 +11,9 @@ const blogRoute = require("./routes/blog");
 const cookieParser = require("cookie-parser");
 const { checkForUserAuthentication } = require("./middleware/auth");
 mongoose
-  .connect(`${process.env.MONGO_URL}/blogify`)
+  .connect(process.env.MONGO_URL, {
+    autoIndex: true,
+  })
   .then(() => console.log("MongoDB connected"));
 
 app.set("view engine", "ejs");
